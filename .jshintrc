@@ -1,5 +1,8 @@
 {
     "node": true,
+    "globals":{
+	    "angular": true
+	  },
     "strict": true,
     "maxcomplexity": 10,
     "maxdepth": 3,

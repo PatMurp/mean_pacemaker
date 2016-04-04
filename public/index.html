@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  ng-app>
+<html  ng-app="paceMaker">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 
 </head>
-<body>
+<body ng-controller="activityListCtrl">
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,13 +35,17 @@
 		<div class="jumbotron">
 			<h1>Welcome to Pacemaker</h1>
 		</div>
-		<input ng-model="myInput">
-		<h2>Hello {{ myInput }}</h2>
+		<ul class="list">
+			<li class="list-group-item" ng-repeat="activity in data.activities">
+				{{ activity.type }} in {{ activity.location }} for {{ activity.distance }}km 
+			</li>
+		</ul>
 	</div><!-- container end	 -->
 
 	<script src="bootstrap/js/jquery-1.12.2.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<!-- angular scripts -->
 	<script src="angular/angular.min.js"></script>
+	<script src="./app.js"></script>
 </body>
 </html>
