@@ -1,0 +1,10 @@
+{
+    "node": true,
+    "strict": true,
+    "maxcomplexity": 10,
+    "maxdepth": 3,
+    "eqeqeq": true,
+    "freeze": true,
+    "undef": true,
+    "unused": true
+}

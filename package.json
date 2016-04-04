@@ -1,0 +1,23 @@
+{
+  "name": "mean_pacemaker",
+  "version": "1.0.0",
+  "description": "Mean application for adding user activities",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Mean",
+    "Stack",
+    "Design",
+    "patterns"
+  ],
+  "author": "Pat Murphy <murphypatv@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "morgan": "^1.7.0"
+  }
+}
