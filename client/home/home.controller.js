@@ -3,9 +3,9 @@ angular
 	.module('paceMaker')
 	.controller('homeCtrl', homeCtrl);
 
-function homeCtrl ($scope) {
-
-	$scope.data = {
+function homeCtrl () {
+	var vm = this;
+	vm.data = {
 		activities: [{
 			type: 'run',
 			location: 'new ross',
