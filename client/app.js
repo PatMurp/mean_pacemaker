@@ -1,5 +1,12 @@
 'use strict';
-angular.module('paceMaker', []);
+angular.module('paceMaker', ['ngRoute']);
+
+function config ($routeProvider) {
+	$routeProvider
+		.when('/', {
+		})
+		.otherwise({redirectTo: '/'});
+}
 
 var activityListCtrl = function($scope) {
 
@@ -24,4 +31,5 @@ var activityListCtrl = function($scope) {
 
 angular
 	.module('paceMaker')
-	.controller('activityListCtrl', activityListCtrl);
+	.controller('activityListCtrl', activityListCtrl)
+	.config(['$routeProvider', config]);

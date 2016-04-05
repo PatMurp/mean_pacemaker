@@ -9,5 +9,6 @@ exports.addMiddleware = function(app) {
 	app.use(bodyParser.json());
 	app.use(morgan('dev'));
 	app.use(express.static('public'));
+	app.use(express.static('client'));
 	app.use(errorHandler());
 };
