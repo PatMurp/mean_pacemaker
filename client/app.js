@@ -1,16 +1,21 @@
 'use strict';
-angular.module('paceMaker', ['ngRoute']);
+(function () {
 
-function config ($routeProvider) {
-	$routeProvider
-		.when('/', {
-			templateUrl: 'home/home.view.html',
-			controller: 'homeCtrl',
-			controllerAs: 'vm'
-		})
-		.otherwise({redirectTo: '/'});
-}
+	angular.module('paceMaker', ['ngRoute']);
 
-angular
-	.module('paceMaker')
-	.config(['$routeProvider', config]);
+	function config ($routeProvider) {
+		$routeProvider
+			.when('/', {
+				templateUrl: 'home/home.view.html',
+				controller: 'homeCtrl',
+				controllerAs: 'vm'
+			})
+			.otherwise({redirectTo: '/'});
+	}
+
+	angular
+		.module('paceMaker')
+		.config(['$routeProvider', config]);
+		
+})();
+
