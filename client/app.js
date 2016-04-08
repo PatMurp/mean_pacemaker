@@ -7,8 +7,6 @@
 		$routeProvider
 			.when('/', {
 				templateUrl: 'home/home.view.html',
-				controller: 'homeCtrl',
-				controllerAs: 'vm'
 			})
 			.when('/register', {
 				templateUrl: 'auth/register/register.view.html',
@@ -18,6 +16,11 @@
 			.when('/login', {
 				templateUrl: 'auth/login/login.view.html',
 				controller: 'loginCtrl',
+				controllerAs: 'vm'
+			})
+			.when('/dashboard', {
+				templateUrl: 'dashboard/dashboard.view.html',
+				controller: 'dashbCtrl',
 				controllerAs: 'vm'
 			})
 			.otherwise({redirectTo: '/'});

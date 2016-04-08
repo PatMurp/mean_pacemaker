@@ -3,9 +3,9 @@
 
 	angular
 	.module('paceMaker')
-	.controller('homeCtrl', homeCtrl);
+	.controller('dashbCtrl', dashbCtrl);
 
-	function homeCtrl () {
+	function dashbCtrl () {
 		var vm = this;
 		vm.data = {
 			activities: [{

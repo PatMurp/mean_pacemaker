@@ -14,9 +14,6 @@
 			password: ""
 		};
 
-		// return to page user was on before
-		vm.returnPage = $location.search().page || '/';
-
 		vm.onSubmit = function () {
       vm.formError = "";
       if (!vm.credentials.email || !vm.credentials.password) {
@@ -35,8 +32,7 @@
           vm.formError = err;
         })
         .then(function(){
-          $location.search('page', null); 
-          $location.path(vm.returnPage);
+          $location.path('/dashboard');
         });
     };
 

@@ -1,0 +1,31 @@
+<navigation></navigation>
+
+<div class="row">
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Pacemaker Dashboard</h1>
+		</div>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Location</th>
+					<th>Distance km</th>
+					<th>Start Time</th>
+					<th>Duration</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="activity in vm.data.activities">
+					<td>{{ activity.type }}</td>
+					<td>{{ activity.location }}</td>
+					<td>{{ activity.distance }}</td>
+					<td>{{ activity.starttime }}</td>
+					<td>{{ activity.duration }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div><!-- container end	 -->
+	<footer-pacemaker></footer-pacemaker>
+</div>
