@@ -8,7 +8,8 @@
 	function navigation () {
 		return {
 			restrict: "EA",
-			templateUrl: '/common/navbar/navigation.template.html'
+			templateUrl: '/common/navbar/navigation.template.html',
+			controller: 'navigationCtrl as navvm'
 		};
 	}
 

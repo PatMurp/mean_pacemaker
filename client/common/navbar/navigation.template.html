@@ -13,9 +13,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav navbar-right">
+        <li><a>Welcome {{ navvm.currentUser.name }}</a></li>
         <li><a href="/">Home</a></li>
-				<li><a href="/#login">Login</a></li>
-				<li><a href="/#register">Signup</a></li>
+				<li ng-hide="navvm.isLoggedIn"><a href="/#login/?page={{ navvm.currentPath }}">Login</a></li>
+        <li ng-show="navvm.isLoggedIn"><a href="/#dashboard">Dashboard</a></li>
+        <li ng-show="navvm.isLoggedIn"><a href="" ng-click="navvm.logout()">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
