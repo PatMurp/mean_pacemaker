@@ -16,6 +16,10 @@
 
     vm.currentUser = authentication.currentUser();
 
+    vm.isActive = function(viewLocation) {
+    	return viewLocation === $location.path();
+    };
+
     vm.logout = function() {
       authentication.logout();
       $location.path('/');
