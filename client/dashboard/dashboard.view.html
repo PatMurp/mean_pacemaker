@@ -11,18 +11,18 @@
 				<tr>
 					<th>Type</th>
 					<th>Location</th>
-					<th>Distance km</th>
+					<th>Distance</th>
 					<th>Start Time</th>
 					<th>Duration</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="activity in vm.data.activities">
+				<tr ng-repeat="activity in vm.activities">
 					<td>{{ activity.type }}</td>
 					<td>{{ activity.location }}</td>
-					<td>{{ activity.distance }}</td>
-					<td>{{ activity.starttime }}</td>
-					<td>{{ activity.duration }}</td>
+					<td>{{ activity.distance }} km</td>
+					<td>{{ activity.starttime | date: 'h:mma'}}</td>
+					<td>{{ activity.duration }} min</td>
 				</tr>
 			</tbody>
 		</table>

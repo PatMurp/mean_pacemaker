@@ -7,7 +7,6 @@ function handleError(res, err) {
 	return res.send(500, err);
 }
 
-
 // get a list of activites
 module.exports.activitesView = function(req, res) {
 	Activity.find(function(err, activites) {
@@ -38,7 +37,6 @@ module.exports.activityUpdate = function(req, res) {
 		});
 	});
 };
-
 
 //delete activity
 module.exports.activityDelete = function(req, res) {
