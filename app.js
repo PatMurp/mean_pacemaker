@@ -29,5 +29,5 @@ app.use(function (err, req, res, next) {
 });
 
 app.listen(process.env.PORT || 4000, function() {
-	console.log("Express server lintening on port 4000");
+	console.log("Express server listening on port 4000");
 });

@@ -10,9 +10,16 @@ var auth = jwt({
 // add auth parameter after url to secure api for registered users
 
 var ctrlAuth = require('../controllers/authentication');
+var ctrlActiv = require('../controllers/activities');
 
 //authentication
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
+
+// activities
+router.get('/activities', ctrlActiv.activitesView);
+router.post('/activities', ctrlActiv.activityCreate);
+router.put('/activities/:id', ctrlActiv.activityUpdate);
+router.delete('/activities/:id', ctrlActiv.activityDelete);
 
 module.exports = router;
