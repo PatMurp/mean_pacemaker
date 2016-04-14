@@ -33,6 +33,7 @@
         var token = getToken();
         var payload = JSON.parse($window.atob(token.split('.')[1]));
         return {
+          _id : payload._id,
           email : payload.email,
           name : payload.name
         };
