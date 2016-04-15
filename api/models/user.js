@@ -5,7 +5,8 @@ var jwt = require('jsonwebtoken');
 
 var activitySchema = mongoose.Schema({
   user: {
-    type : mongoose.Schema.Types, ref : 'User' 
+    type : mongoose.Schema.Types, 
+    ref : 'User' 
   },
   type: String,
   location: String,
@@ -17,7 +18,7 @@ var activitySchema = mongoose.Schema({
 var userSchema = new mongoose.Schema({
 	email: {
 		type: String,
-		unique: 'My error message',
+		unique: true,
 		required: true
 	},
 	name: {

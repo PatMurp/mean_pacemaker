@@ -7,9 +7,19 @@ function handleError(res, err) {
 	return res.send(500, err);
 }
 
-// get a list of activites
-module.exports.activitesView = function(req, res) {
+// get a list of all activites
+module.exports.activitesViewAll = function(req, res) {
+	
 	Activity.find(function(err, activites) {
+		if(err) { return handleError(res, err); }
+		return res.json(200, activites);
+	});
+};
+
+// list user activities using mongoose query
+module.exports.activityViewUser = function(req, res) {
+
+	Activity.find({user: req.params.user}, function(err, activites) {
 		if(err) { return handleError(res, err); }
 		return res.json(200, activites);
 	});
