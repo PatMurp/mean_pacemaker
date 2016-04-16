@@ -11,7 +11,7 @@
 		// get logged in user id
 		vm.userId = authentication.currentUser()._id;
 
-		activityData.getActivities()
+		activityData.getUserActivities(vm.userId)
 			.success(function(activities) {
 				vm.activities = activities;
 		});

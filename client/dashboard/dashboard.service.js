@@ -8,8 +8,8 @@
 	activityData.$inject = ['$http'];
 	function activityData($http) {
 
-		var getActivities = function () {
-			return $http.get('/api/activities');
+		var getUserActivities = function(user) {
+			return $http.get('/api/activities/' + user);
 		};
 
 		var addActivity = function(activity) {
@@ -17,7 +17,7 @@
 		};
 
 		return {
-		getActivities: getActivities,
+		getUserActivities: getUserActivities,
 		addActivity: addActivity
 	};
 	}
