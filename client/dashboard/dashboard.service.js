@@ -19,7 +19,7 @@
 		return {
 		getUserActivities: getUserActivities,
 		addActivity: addActivity
-	};
+		};
 	}
  
 })();

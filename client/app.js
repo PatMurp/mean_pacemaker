@@ -23,6 +23,11 @@
 				controller: 'dashbCtrl',
 				controllerAs: 'vm'
 			})
+			.when('/report', {
+				templateUrl: 'report/report.view.html',
+				controller: 'reportCtrl',
+				controllerAs: 'vm'
+			})
 			.otherwise({redirectTo: '/'});
 
 		$locationProvider.html5Mode(true);
