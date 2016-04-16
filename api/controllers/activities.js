@@ -12,7 +12,7 @@ module.exports.activitesViewAll = function(req, res) {
 	
 	Activity.find(function(err, activites) {
 		if(err) { return handleError(res, err); }
-		return res.json(200, activites);
+		return res.status(200).json(activites);
 	});
 };
 
@@ -21,7 +21,7 @@ module.exports.activityViewUser = function(req, res) {
 
 	Activity.find({user: req.params.user}, function(err, activites) {
 		if(err) { return handleError(res, err); }
-		return res.json(200, activites);
+		return res.status(200).json(activites);
 	});
 };
 
@@ -29,7 +29,7 @@ module.exports.activityViewUser = function(req, res) {
 module.exports.activityCreate = function(req, res) {
 	Activity.create(req.body, function(err, activity) {
 		if(err) { return handleError(res, err); }
-		return res.json(201, activity);
+		return res.status(201).json(activity);
 	});
 };
 
@@ -43,7 +43,7 @@ module.exports.activityUpdate = function(req, res) {
 		activity.duration = req.body.duration;
 		activity.save(function (err) {
 			if(err) {return handleError(res, err);}
-			return res.send(200, 'Update sucessfull');
+			return res.status(200).json("Update secessful");
 		});
 	});
 };
@@ -53,7 +53,7 @@ module.exports.activityDelete = function(req, res) {
 	Activity.findById(req.params.id, function(err, activity) {
 		activity.remove(function(err) {
 			if(err) { return handleError(res, err); }
-			return res.send(200, 'Activity Deleted');
+			return res.status(200).json("Activity Deleted");
 		});
 	});
 };
