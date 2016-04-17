@@ -15,5 +15,14 @@
 			.success(function(activities) {
 				vm.activities = activities;
 		});
+
+		vm.deleteActivity = function(id) {
+
+			activityData.destroy(id)
+				.success(function(activities) {
+					vm.activities.splice(activities, 1);
+				});
+		};
+
 	}
 })();

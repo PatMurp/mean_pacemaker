@@ -16,9 +16,14 @@
 			return $http.post('/api/activities', activity);
 		};
 
+		var destroy = function(id) {
+			return $http.delete('/api/activities/' + id);
+		};
+
 		return {
-		getUserActivities: getUserActivities,
-		addActivity: addActivity
+			getUserActivities: getUserActivities,
+			addActivity: addActivity,
+			destroy: destroy
 		};
 	}
  
