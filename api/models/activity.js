@@ -2,6 +2,10 @@
 var mongoose = require('mongoose');
 
 var activitySchema = mongoose.Schema({
+	user: {
+    type : mongoose.Schema.Types, 
+    ref : 'User' 
+  },
   type: String,
   location: String,
   distance: Number,
@@ -9,4 +13,4 @@ var activitySchema = mongoose.Schema({
   duration: Number
 });
 
-mongoose.model('Activity', activitySchema);
+module.exports = mongoose.model('Activity', activitySchema);

@@ -6,3 +6,4 @@ mongoose.connect(dbURI);
 
 // include schemas
 require('./user');
+require('./activity');

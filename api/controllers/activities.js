@@ -1,6 +1,5 @@
 'use strict';
-var mongoose = require('mongoose');
-var Activity = mongoose.model('Activity');
+var Activity = require('../models/activity');
 
 // error handling
 function handleError(res, err) {

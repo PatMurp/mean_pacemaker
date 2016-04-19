@@ -1,8 +1,6 @@
 'use strict';
 var passport = require('passport');
-var mongoose = require('mongoose');
-var User = mongoose.model('User');
-
+var User = require('../models/user');
 
 var sendJSONresponse = function(res, status, content) {
 	res.status(status);

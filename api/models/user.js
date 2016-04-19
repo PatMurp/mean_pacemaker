@@ -3,18 +3,6 @@ var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 
-var activitySchema = mongoose.Schema({
-  user: {
-    type : mongoose.Schema.Types, 
-    ref : 'User' 
-  },
-  type: String,
-  location: String,
-  distance: Number,
-  starttime: Date,
-  duration: Number
-});
-
 var userSchema = new mongoose.Schema({
 	email: {
 		type: String,
@@ -52,5 +40,5 @@ userSchema.methods.generateJwt = function() {
   }, process.env.JWT_SECRET); // DO NOT KEEP YOUR SECRET IN THE CODE!
 };
 
-mongoose.model('User', userSchema);
-mongoose.model('Activity', activitySchema);
+module.exports = mongoose.model('User', userSchema);
+
