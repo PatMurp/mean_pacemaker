@@ -1,57 +1,89 @@
 <navigation></navigation>
 
-<div class="row">
-	<div class="container">
-		<div class="jumbotron">
-			<h1>Pacemaker Dashboard</h1>
-		</div>
+<div class="container">
+	<div class="row">
+		<h2 class="text-center">Activity Summary</h2>
+		<div class="col-sm-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Activity by Month</h3>
+				</div><!-- panel-heading end -->
+				<div class="panel-body">
+					<ul class="by-month">
+						<li ng-repeat="activity in vm.activities" ng-if="activity.count > 0">
+							{{ activity.month | date:'MMM'}} - {{ activity.count }}
+						</li>
+					</ul>
+				</div><!-- panel-body end -->
+			</div><!-- panel panel-default end -->
+		</div><!-- col-sm-2 end -->
+		<div class="col-sm-10">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Last 10 acivities-
+						<span class="key distance"></span>Distance &
+						<span class="key time"></span>Time
+					</h3>
+				</div><!-- panel heading end -->
+				<div class="panel-body">
+					<table class="bar-chart">
+						<tr ng-repeat="activity in vm.activities | orderBy:'$index':false">
+							<td class="legend" ng-style="{left:$index * 10 +'%'}">{{ activity.starttime | date:'dd MMM' }} <br>{{ activity.type }}</td>
+							<td class="time" ng-style="{ left:$index * 10 +'%', height: (activity.duration / vm.maxTime) * 300 + 'px'}" ng-class="{highlight: activity.duration === vm.maxTime}"><span>{{ activity.duration }} Minutes</span></td>
+							<td class="distance" ng-style="{ left:$index * 10 +'%', height: (activity.distance / vm.maxDistance) * 300 + 'px'}" ng-class="{highlight: activity.distance === vm.maxDistance}"><span>{{ activity.distance }} Kilometers</span></td>
+						</tr>
+					</table>
+				</div><!-- panel-body end -->
+			</div><!-- panel panel-default end -->
+		</div><!-- col-sm-10 end -->
+	</div><br><!-- row end -->
 
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Type</th>
-					<th>Location</th>
-					<th>Distance</th>
-					<th>Start Time</th>
-					<th>Duration</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="activity in vm.activities">
-					<td>{{ activity.type }}</td>
-					<td>{{ activity.location }}</td>
-					<td>{{ activity.distance }} km</td>
-					<td>{{ activity.starttime | date: 'h:mma'}}</td>
-					<td>{{ activity.duration }} min</td>
-				</tr>
-			</tbody>
-		</table>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Type</th>
+				<th>Location</th>
+				<th>Distance</th>
+				<th>Start Time</th>
+				<th>Duration</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="activity in vm.activities">
+				<td>{{ activity.type }}</td>
+				<td>{{ activity.location }}</td>
+				<td>{{ activity.distance }} km</td>
+				<td>{{ activity.starttime | date: 'h:mma'}}</td>
+				<td>{{ activity.duration }} min</td>
+			</tr>
+		</tbody>
+	</table>
 
-		<div class="col-md-3 col-sm-12">
-			<form ng-submit="vm.addActivity()">
-				<h3>Add activity</h3>
-					
-				<div class="form-group">
-					<input class="form-control" type="string" ng-model="vm.newActivity.type" placeholder="type" required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="string" ng-model="vm.newActivity.location" placeholder="location" required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="number" ng-model="vm.newActivity.distance" min="0.1" max="100" step="0.1" placeholder="distance km:" required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="datetime-local" ng-model="vm.newActivity.starttime"required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="number" ng-model="vm.newActivity.duration" placeholder="duration minutes:" required>
-				</div>
-				<button type="submit" class="btn btn-success btn-block">Add Activity</button>
-			</form>
-		</div><!-- col-md-3 end -->	
+	<div class="col-md-3 col-sm-12">
+		<form ng-submit="vm.addActivity()">
+			<h3>Add activity</h3>
 
-	</div><!-- container end	 -->
+			<div class="form-group">
+				<input class="form-control" type="string" ng-model="vm.newActivity.type" placeholder="type" required>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="string" ng-model="vm.newActivity.location" placeholder="location" required>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="number" ng-model="vm.newActivity.distance" min="0.1" max="100" step="0.1" placeholder="distance km:" required>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="datetime-local" ng-model="vm.newActivity.starttime"required>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="number" ng-model="vm.newActivity.duration" placeholder="duration minutes:" required>
+			</div>
+			<button type="submit" class="btn btn-success btn-block">Add Activity</button>
+		</form>
+	</div><!-- col-md-3 end -->	
+
+	
 
 	
 	<footer-pacemaker></footer-pacemaker>
-</div>
+</div><<!-- container end	 -->

@@ -14,6 +14,33 @@
 		activityData.getUserActivities(vm.userId)
 			.success(function(activities) {
 				vm.activities = activities;
+
+				vm.maxTime = Math.max.apply(Math,
+					activities.map(function(o) {
+						return o.duration;
+					})
+				);
+
+				vm.maxDistance = Math.max.apply(Math,
+					activities.map(function(o) {
+						return o.distance;
+					}) 
+				);
+
+				vm.total = 0;
+				for(var i=0; i<activities.length; i++) {
+					// count activities
+					vm.total++;
+					
+
+				
+
+					// get month number
+					//var month = activities[i].starttime.value.getMonth();
+					var month = new Date(activities[i].starttime).getMonth();
+					console.log(month);
+					//vm.monthsJogged[month].count++;
+				}
 		});
 
 		vm.addActivity = function () {
@@ -31,6 +58,13 @@
 					vm.newActivity = {};
 				});
 		};
+
+		
+		
+
+		       // Maximum Time
+      // $scope.maxTime = Math.max.apply(Math, $scope.data.map(function(o) {
+      //     return o.time;
 	}
 
 })();
