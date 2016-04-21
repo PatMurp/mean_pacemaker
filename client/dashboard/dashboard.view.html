@@ -6,12 +6,12 @@
 		<div class="col-sm-2">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">Activity by Month</h3>
+					<h3 class="panel-title">Activity Count</h3>
 				</div><!-- panel-heading end -->
 				<div class="panel-body">
 					<ul class="by-month">
-						<li ng-repeat="activity in vm.activities" ng-if="activity.count > 0">
-							{{ activity.month | date:'MMM'}} - {{ activity.count }}
+						<li ng-repeat="(key, value) in vm.articlesByType">
+							 {{key}} - {{value}}
 						</li>
 					</ul>
 				</div><!-- panel-body end -->

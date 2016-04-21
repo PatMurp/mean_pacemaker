@@ -27,20 +27,18 @@
 					}) 
 				);
 
-				vm.total = 0;
-				for(var i=0; i<activities.length; i++) {
-					// count activities
-					vm.total++;
-					
+				vm.articlesByType = activities.reduce(function(prev, activity) {
 
-				
+					if( !!prev[activity.type]) {
+						// activity type already exists -> increment
+						prev[activity.type]++;
+					} else {
+						// activity type does not exist -> init
+						prev[activity.type] = 1;
+					}
+					return prev;
+				}, {});
 
-					// get month number
-					//var month = activities[i].starttime.value.getMonth();
-					var month = new Date(activities[i].starttime).getMonth();
-					console.log(month);
-					//vm.monthsJogged[month].count++;
-				}
 		});
 
 		vm.addActivity = function () {
