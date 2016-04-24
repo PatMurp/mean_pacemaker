@@ -15,11 +15,11 @@
 	<div class="row">
 		<section class="col-sm-6 co2_saving">
 			<h2 class="text-center">CO2 Savings</h2>
-			<p class="text-center">100</p>
+			<p class="text-center">{{vm.co2_savings}}</p>
 		</section>
 		<section class="col-sm-6 co2_value">
 			<h2 class="text-center">Carbon Credit Value</h2>
-			<p class="text-center">0.12</p>
+			<p class="text-center">{{vm.co2_value}}</p>
 		</section>
 	</div>
 	<div class="row">
@@ -27,14 +27,14 @@
 			<h4 class="text-center">Distance</h4>
 			<p class="text-center">kilometers</p>
 			<div class="form-group">
-				<input class="form-control" ng-model="vm.current_distance" type="number" ng-value="{{vm.current_distance}}">
+				<input class="form-control" ng-change="vm.calculate()" ng-model="vm.current_distance" type="number" ng-value="{{vm.current_distance}}">
 			</div>
 		</form>
 		<form class="col-sm-4 co2_form">
 			<h4 class="text-center">Emissions</h4>
 			<p class="text-center">CO2 Band</p>
 			<div class="form-group">
-			<select class="form-control" ng-model="vm.current_co2_band" ng-options="o as o for o in vm.co2_band_options">
+			<select class="form-control" ng-change="vm.calculate()" ng-model="vm.current_co2_band" ng-options="o as o for o in vm.co2_band_options">
 			</select>
 			</div>
 		</form>
@@ -42,7 +42,7 @@
 			<h4 class="text-center">Carbon Credit Value</h4>
 			<p class="text-center">€/tonne</p>
 			<div class="form-group">
-				<input class="form-control" type="number" ng-model="vm.current_co2_value" ng-value="{{vm.current_co2_value}}">
+				<input class="form-control" type="number" ng-change="vm.calculate()" ng-model="vm.current_co2_value" ng-value="{{vm.current_co2_value}}">
 			</div>
 		</form>
 	</div><!-- row end -->
