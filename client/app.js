@@ -28,6 +28,9 @@
 				controller: 'reportCtrl',
 				controllerAs: 'vm'
 			})
+			.when('/carbon', {
+				templateUrl: 'carbonCalc/co2.view.html'
+			})
 			.otherwise({redirectTo: '/'});
 
 		$locationProvider.html5Mode(true);

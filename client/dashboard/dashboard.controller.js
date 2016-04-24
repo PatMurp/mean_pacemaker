@@ -57,12 +57,6 @@
 				});
 		};
 
-		
-		
-
-		       // Maximum Time
-      // $scope.maxTime = Math.max.apply(Math, $scope.data.map(function(o) {
-      //     return o.time;
 	}
 
 })();

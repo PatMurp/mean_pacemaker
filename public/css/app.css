@@ -12,16 +12,6 @@ ul li {
   text-transform: capitalize;
 }
 
-.navbar {
-  border-radius: 0;
-  background: #05676E;
-  color: white;
-  font-weight: bold;
-  font-size: 1.3em;
-  border: none;
-  padding: 10px;
-}
-
 .by-month {
   font-size: 1.3em;
   color: #668284;
@@ -161,3 +151,54 @@ table.pie-table td {
   padding: 4px;
   background: #eee;
 }
+
+/*Carbon saving styles*/
+section {
+  padding-top: 110px;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+section p {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+section.co2_saving {
+  background-color: #5cb85c;
+  background-image: url(../img/bike.png);
+}
+
+section.co2_saving p::after {
+  content: 'kg';
+}
+
+section.co2_value {
+  background-color: #efc20f;
+  background-image: url(../img/euro.png);
+}
+
+section.co2_value p::before {
+  content: '€';
+}
+
+form.co2_form {
+  background-color: #000;
+  padding: 10px 60px;
+}
+
+form.co2_form h4 {
+  color: #aaa;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+form.co2_form p {
+  color: #888;
+  margin: 0 0 6px 0;
+  font-size: .9em;
+}
+
+form.co2_form input[type=number] {
+  text-align: center;
+}
+
