@@ -29,7 +29,9 @@
 				controllerAs: 'vm'
 			})
 			.when('/carbon', {
-				templateUrl: 'carbonCalc/co2.view.html'
+				templateUrl: 'carbonCalc/co2.view.html',
+				controller: 'co2CalcCtrl',
+				controllerAs: 'vm'
 			})
 			.otherwise({redirectTo: '/'});
 
