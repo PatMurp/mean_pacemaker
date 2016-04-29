@@ -57,8 +57,10 @@ ul li {
   bottom: 0;
   padding: 5px;
   color: white;
-  transform: rotate(-90deg);
-  transform-origin: bottom left;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
   width: 300px;
 }
 .bar-chart .legend {
@@ -97,14 +99,16 @@ ul li {
   position: relative;
 }
 .line-chart:before {
-  content: "Minutes per Mile";
+  content: "Minutes per km";
   display: block;
   position: absolute;
   bottom: 20px;
   left: 30px;
   width: 200px;
-  transform: rotate(-90deg);
-  transform-origin: bottom left;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
   text-align: center;
 }
 .line-chart .line-legend-max {
@@ -151,6 +155,7 @@ table.pie-table td {
   padding: 4px;
   background: #eee;
 }
+
 
 /*Carbon saving styles*/
 section {

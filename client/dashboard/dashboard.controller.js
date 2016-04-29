@@ -27,6 +27,30 @@
 					}) 
 				);
 
+				// loop to set activity pace
+				for(var i = 0; i < activities.length; i++) {
+					activities[i].pace = activities[i].duration / activities[i].distance;
+				}
+
+				vm.maxPace = Math.max.apply(Math, 
+					activities.map(function(o) {
+						return o.pace;
+					})
+				);
+
+				vm.minPace = Math.min.apply(Math, 
+					activities.map(function(o) {
+						return o.pace;
+					})
+				);
+
+				// get relative pace in activity range
+				for(var j = 0; j < activities.length; j++) {
+					var item = activities[j];
+					item.relPace = (item.pace - vm.minPace) / (vm.maxPace - vm.minPace);
+				}
+
+				// count activity types
 				vm.articlesByType = activities.reduce(function(prev, activity) {
 
 					if( !!prev[activity.type]) {

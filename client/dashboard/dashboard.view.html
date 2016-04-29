@@ -36,28 +36,33 @@
 				</div><!-- panel-body end -->
 			</div><!-- panel panel-default end -->
 		</div><!-- col-sm-10 end -->
-	</div><br><!-- row end -->
+	</div><!-- row end -->
+	<div class="row">
+		<div class="col-sm-2">
+		</div>
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Pace</h3>
+				</div><!-- panel-heading end -->
+				<div class="panel-body line-chart">
+					<div class="line-legend-min">
+						{{vm.minPace | number:2}}
+					</div>
+					<div class="line-legend-max">
+						{{vm.maxPace | number:2}}
+					</div>
+					<svg>
+						
 
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>Type</th>
-				<th>Location</th>
-				<th>Distance</th>
-				<th>Start Time</th>
-				<th>Duration</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="activity in vm.activities">
-				<td>{{ activity.type }}</td>
-				<td>{{ activity.location }}</td>
-				<td>{{ activity.distance }} km</td>
-				<td>{{ activity.starttime | date: 'h:mma'}}</td>
-				<td>{{ activity.duration }} min</td>
-			</tr>
-		</tbody>
-	</table>
+						<line ng-repeat="activity in vm.activities | orderBy:'$index':false" x1="{{($index - 1) / vm.activities.length * 100}}%"  x2="{{$index / vm.activities.length * 100}}%" y1="{{vm.activities[$index - 1].relPace * 200}}" y2="{{activity.relPace * 200}}">
+						</line>
+					</svg>
+				</div><!-- panel-body end -->
+			</div><!-- panel panel-default end -->
+		</div><!-- col-sm-6 end -->
+	</div><!-- row end -->
+
 
 	<div class="col-md-3 col-sm-12">
 		<form ng-submit="vm.addActivity()">
