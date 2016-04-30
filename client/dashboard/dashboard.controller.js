@@ -71,22 +71,6 @@
 			vm.city = data;
 		});
 
-		vm.addActivity = function () {
-			var activity = {
-				user: vm.userId, // save user id with activity
-				type: vm.newActivity.type,
-				location: vm.newActivity.location,
-				distance: vm.newActivity.distance,
-				starttime: vm.newActivity.starttime,
-				duration: vm.newActivity.duration
-			};
-			activityData.addActivity(activity)
-				.success(function(added_activity) {
-					vm.activities.push(added_activity);
-					vm.newActivity = {};
-				});
-		};
-
 	}
 
 })();

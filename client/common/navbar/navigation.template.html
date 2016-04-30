@@ -22,7 +22,8 @@
         ng-show="navvm.isLoggedIn"><a href="/#dashboard">Dashboard</a></li>
         <li ng-class="{ active: navvm.isActive('/report')}"
         ng-show="navvm.isLoggedIn"><a href="/#report">Report</a></li>
-        <li ng-class="{ active: navvm.isActive('/carbon')}"><a href="/#carbon">C02 Savings</a></li>
+        <li ng-class="{ active: navvm.isActive('/carbon')}"
+        ng-show="navvm.isLoggedIn"><a href="/#carbon">C02 Savings</a></li>
         <li ng-show="navvm.isLoggedIn"><a href="" ng-click="navvm.logout()">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

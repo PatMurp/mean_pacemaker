@@ -28,7 +28,30 @@
 					<td><a data={{activity._id}} ng-click="vm.deleteActivity(activity._id)" class="btn btn-danger btn-sm">Delete</a></td>
 				</tr>
 			</tbody>
-		</table
+		</table>
+
+		<div class="col-md-3 col-sm-12">
+			<form ng-submit="vm.addActivity()">
+				<h3>Add activity</h3>
+
+				<div class="form-group">
+					<input class="form-control" type="string" ng-model="vm.newActivity.type" placeholder="type" required>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="string" ng-model="vm.newActivity.location" placeholder="location" required>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="number" ng-model="vm.newActivity.distance" min="0.1" max="100" step="0.1" placeholder="distance km:" required>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="datetime-local" ng-model="vm.newActivity.starttime"required>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="number" ng-model="vm.newActivity.duration" placeholder="duration minutes:" required>
+				</div>
+				<button type="submit" class="btn btn-success btn-block">Add Activity</button>
+			</form>
+		</div><!-- col-md-3 end -->	
 
 	</div><!-- container end	 -->
 
