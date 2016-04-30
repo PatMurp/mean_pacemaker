@@ -4,21 +4,22 @@
 	<div class="row">
 		<h2 class="text-center">Activity Summary</h2>
 		<div class="col-sm-2">
-			<div class="panel panel-default">
+			<div class="panel panel-success">
 				<div class="panel-heading">
 					<h3 class="panel-title">Activity Count</h3>
 				</div><!-- panel-heading end -->
 				<div class="panel-body">
 					<ul class="by-month">
+					<strong>Total - {{vm.numberOfActivities}}</strong>
 						<li ng-repeat="(key, value) in vm.articlesByType">
 							 {{key}} - {{value}}
 						</li>
 					</ul>
 				</div><!-- panel-body end -->
-			</div><!-- panel panel-default end -->
+			</div><!-- panel panel-success end -->
 		</div><!-- col-sm-2 end -->
 		<div class="col-sm-10">
-			<div class="panel panel-default">
+			<div class="panel panel-success">
 				<div class="panel-heading">
 					<h3 class="panel-title">Last 10 acivities-
 						<span class="key distance"></span>Distance &
@@ -39,9 +40,24 @@
 	</div><!-- row end -->
 	<div class="row">
 		<div class="col-sm-2">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title">Weather Now</h3>
+				</div><!-- panel-heading end -->
+				<div class="panel-body panel-info">
+					<ul class="by-month">
+						<li>{{vm.city.weather[0].description}}</li>
+						<li>Temp: {{vm.city.main.temp}} &deg;C</li>
+						<li>Humidity: {{vm.city.main.humidity}} %</li>
+						<li>Wind: {{vm.city.wind.speed}} m/s</li>
+						<li>Cloud {{vm.city.clouds.all}} %</li>
+					</ul>
+			</div><!-- panel-body end -->
+		</div><!-- panel panel-success end -->
+		
 		</div>
-		<div class="col-sm-6">
-			<div class="panel panel-default">
+		<div class="col-sm-10">
+			<div class="panel panel-success">
 				<div class="panel-heading">
 					<h3 class="panel-title">Pace</h3>
 				</div><!-- panel-heading end -->
@@ -53,14 +69,12 @@
 						{{vm.maxPace | number:2}}
 					</div>
 					<svg>
-						
-
 						<line ng-repeat="activity in vm.activities | orderBy:'$index':false" x1="{{($index - 1) / vm.activities.length * 100}}%"  x2="{{$index / vm.activities.length * 100}}%" y1="{{vm.activities[$index - 1].relPace * 200}}" y2="{{activity.relPace * 200}}">
 						</line>
 					</svg>
 				</div><!-- panel-body end -->
 			</div><!-- panel panel-default end -->
-		</div><!-- col-sm-6 end -->
+		</div><!-- col-sm-10 end -->
 	</div><!-- row end -->
 
 

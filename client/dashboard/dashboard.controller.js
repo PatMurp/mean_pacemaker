@@ -5,8 +5,8 @@
 	.module('paceMaker')
 	.controller('dashbCtrl', dashbCtrl);
 
-	dashbCtrl.$inject = ['activityData', 'authentication'];
-	function dashbCtrl (activityData, authentication) {
+	dashbCtrl.$inject = ['activityData', 'authentication', 'openWeather'];
+	function dashbCtrl (activityData, authentication, openWeather) {
 		var vm = this;
 		// get logged in user id
 		vm.userId = authentication.currentUser()._id;
@@ -44,6 +44,8 @@
 					})
 				);
 
+				vm.numberOfActivities = activities.length;
+
 				// get relative pace in activity range
 				for(var j = 0; j < activities.length; j++) {
 					var item = activities[j];
@@ -63,6 +65,10 @@
 					return prev;
 				}, {});
 
+		});
+
+		openWeather.getWeather().then(function(data) {
+			vm.city = data;
 		});
 
 		vm.addActivity = function () {
