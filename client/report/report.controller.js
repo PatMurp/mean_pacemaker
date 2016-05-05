@@ -5,9 +5,11 @@
 		.module('paceMaker')
 		.controller('reportCtrl', reportCtrl);
 
-	reportCtrl.$inject = ['activityData', 'authentication'];
-	function reportCtrl (activityData, authentication) {
+	reportCtrl.$inject = ['activityData', 'authentication', '$http'];
+	function reportCtrl (activityData, authentication, $http) {
 		var vm = this;
+
+
 		// get logged in user id
 		vm.userId = authentication.currentUser()._id;
 
@@ -32,6 +34,16 @@
 				});
 		};
 
+		vm.updateActivity = function(activity) {
+			return $http.put('/api/activities/' + activity._id, {
+				type: activity.type,
+				location: activity.location,
+				distance: activity.distance,
+				starttime: activity.starttime,
+				duration: activity.duration
+			});
+		};
+
 		vm.deleteActivity = function(id) {
 
 			activityData.destroy(id)
@@ -39,6 +51,9 @@
 					vm.activities.splice(activities, 1);
 				});
 		};
+
+		
+		
 
 	}
 })();

@@ -1,7 +1,7 @@
 'use strict';
 (function () {
 
-	angular.module('paceMaker', ['ngRoute']);
+	angular.module('paceMaker', ['ngRoute', 'xeditable']);
 
 	function config ($routeProvider, $locationProvider) {
 		$routeProvider
@@ -34,6 +34,7 @@
 				controllerAs: 'vm'
 			})
 			.otherwise({redirectTo: '/'});
+
 
 		$locationProvider.html5Mode(true);
 	}

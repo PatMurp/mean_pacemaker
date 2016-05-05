@@ -12,19 +12,20 @@
 					<th>Location</th>
 					<th>Distance</th>
 					<th>Start Time</th>
+					<th>Date</th>
 					<th>Duration</th>
-					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="activity in vm.activities">
-					<td>{{ activity.type }}</td>
-					<td>{{ activity.location }}</td>
-					<td>{{ activity.distance }} km</td>
-					<td>{{ activity.starttime | date: 'h:mma'}}</td>
-					<td>{{ activity.duration }} min</td>
-					<td><a class="btn btn-info btn-sm">Edit</a></td>
+					<td><a href="#" editable-text="activity.type" onaftersave="vm.updateActivity(activity)">{{ activity.type || 'empty' }}</a></td>
+					<td> <a href="#" editable-text="activity.location" onaftersave="vm.updateActivity(activity)">{{ activity.location || 'empty'  }}</a></td>
+					<td><a href="#" editable-number="activity.distance" onaftersave="vm.updateActivity(activity)">{{ activity.distance || 'empty'  }} km</a></td>
+					<td><a href="#" editable-datetime="activity.starttime" onaftersave="vm.updateActivity(activity)">{{ activity.starttime | date: 'h:mma'}}</a></td>
+					<td>{{ activity.starttime | date: 'dd:MMM:yyyy'}}</td>
+					<td><a href="#" editable-number="activity.duration" onaftersave="vm.updateActivity(activity)">{{ activity.duration  || 'empty' }} min</a></td>
+	
 					<td><a data={{activity._id}} ng-click="vm.deleteActivity(activity._id)" class="btn btn-danger btn-sm">Delete</a></td>
 				</tr>
 			</tbody>
@@ -49,6 +50,13 @@
 				<div class="form-group">
 					<input class="form-control" type="number" ng-model="vm.newActivity.duration" placeholder="duration minutes:" required>
 				</div>
+				 <div class="form-group">
+		      <div class="checkbox">
+		        <label>
+		          <input type="checkbox"> Carbon savings
+		        </label>
+		      </div>
+			  </div>
 				<button type="submit" class="btn btn-success btn-block">Add Activity</button>
 			</form>
 		</div><!-- col-md-3 end -->	
