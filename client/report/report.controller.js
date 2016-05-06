@@ -51,9 +51,5 @@
 					vm.activities.splice(activities, 1);
 				});
 		};
-
-		
-		
-
 	}
 })();

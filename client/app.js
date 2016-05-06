@@ -3,6 +3,17 @@
 
 	angular.module('paceMaker', ['ngRoute', 'xeditable']);
 
+	var onlyLoggedIn = function($location, $q, authentication) {
+		var deferred = $q.defer();
+		if(authentication.isLoggedIn()) {
+			deferred.resolve();
+		} else {
+			deferred.reject();
+			$location.url('/login');
+		}
+		return deferred.promise;
+	};
+
 	function config ($routeProvider, $locationProvider) {
 		$routeProvider
 			.when('/', {
@@ -21,17 +32,26 @@
 			.when('/dashboard', {
 				templateUrl: 'dashboard/dashboard.view.html',
 				controller: 'dashbCtrl',
-				controllerAs: 'vm'
+				controllerAs: 'vm',
+				resolve: {
+					loggedIn:onlyLoggedIn
+				}
 			})
 			.when('/report', {
 				templateUrl: 'report/report.view.html',
 				controller: 'reportCtrl',
-				controllerAs: 'vm'
+				controllerAs: 'vm',
+				resolve: {
+					loggedIn:onlyLoggedIn
+				}
 			})
 			.when('/carbon', {
 				templateUrl: 'carbonCalc/co2.view.html',
 				controller: 'co2CalcCtrl',
-				controllerAs: 'vm'
+				controllerAs: 'vm',
+				resolve: {
+					loggedIn:onlyLoggedIn
+				}
 			})
 			.otherwise({redirectTo: '/'});
 

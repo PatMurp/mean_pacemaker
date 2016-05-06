@@ -16,10 +16,6 @@
 			return $http.post('/api/activities', activity);
 		};
 
-		// var editActivity = function(activity) {
-		// 	return $http.put('/api/activities/' + activity.id, activity);
-		// };
-
 		var destroy = function(id) {
 			return $http.delete('/api/activities/' + id);
 		};
