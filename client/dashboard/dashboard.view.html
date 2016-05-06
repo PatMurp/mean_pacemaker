@@ -1,7 +1,8 @@
 <navigation></navigation>
 
 <div class="container">
-	<div class="row">
+	<h2 ng-show="!vm.activities.length" class="text-center alert alert-danger" role="alert">No Activities Available</h2>
+	<div class="row" ng-hide="!vm.activities.length">
 		<h2 class="text-center">Activity Summary</h2>
 		<div class="col-sm-2">
 			<div class="panel panel-success">
@@ -38,11 +39,11 @@
 			</div><!-- panel panel-default end -->
 		</div><!-- col-sm-10 end -->
 	</div><!-- row end -->
-	<div class="row">
+	<div class="row" ng-hide="!vm.activities.length">
 		<div class="col-sm-2">
 			<div class="panel panel-success">
 				<div class="panel-heading">
-					<h3 class="panel-title">Weather Now</h3>
+					<h3 class="panel-title">{{vm.city.name}}</h3>
 				</div><!-- panel-heading end -->
 				<div class="panel-body panel-info">
 					<ul class="by-month">
@@ -77,4 +78,4 @@
 		</div><!-- col-sm-10 end -->
 	</div><!-- row end -->
 	<footer-pacemaker></footer-pacemaker>
-</div><<!-- container end	 -->
+</div><!-- container end	 -->

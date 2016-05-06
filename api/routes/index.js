@@ -17,7 +17,7 @@ router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
 // activities
-router.get('/activities', ctrlActiv.activitesViewAll);
+router.get('/activities', auth, ctrlActiv.activitesViewAll);
 router.get('/activities/:user', ctrlActiv.activityViewUser);
 
 router.post('/activities', ctrlActiv.activityCreate);
