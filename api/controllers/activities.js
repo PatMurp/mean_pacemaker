@@ -40,6 +40,7 @@ module.exports.activityUpdate = function(req, res) {
 		activity.distance = req.body.distance;
 		activity.starttime = req.body.starttime;
 		activity.duration = req.body.duration;
+		activity.kgCo2 = req.body.kgCo2;
 		activity.save(function (err) {
 			if(err) {return handleError(res, err);}
 			return res.status(200).json("Update secessful");

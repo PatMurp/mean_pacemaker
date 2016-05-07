@@ -20,7 +20,7 @@
 					<td><a href="#" editable-text="activity.type" onaftersave="vm.updateActivity(activity)">{{ activity.type || 'empty' }}</a></td>
 					<td> <a href="#" editable-text="activity.location" onaftersave="vm.updateActivity(activity)">{{ activity.location || 'empty'  }}</a></td>
 					<td><a href="#" editable-number="activity.distance" onaftersave="vm.updateActivity(activity)">{{ activity.distance || 'empty'  }} km</a></td>
-					<td><a href="#" editable-datetime="activity.starttime" onaftersave="vm.updateActivity(activity)">{{ activity.starttime | date: 'h:mma'}}</a></td>
+					<td><a href="#" editable-datetime="activity.starttime" onaftersave="vm.updateActivity(activity)">{{ activity.starttime || 'empty'| date: 'h:mma'}}</a></td>
 					<td>{{ activity.starttime | date: 'dd:MMM:yyyy'}}</td>
 					<td><a href="#" editable-number="activity.duration" onaftersave="vm.updateActivity(activity)">{{ activity.duration  || 'empty' }} min</a></td>
 	
@@ -62,7 +62,7 @@
 			  	</select>
 			  </div>
 			  <div class="form-group" ng-show="check == 'A'">
-			  	<input type="number" ng-value="{{vm.newActivity.distance}}">
+			  	<input type="number" ng-model="vm.newActivity.kgCo2">
 			  </div>
 		
 				<button type="submit" class="btn btn-success btn-block">Add Activity</button>

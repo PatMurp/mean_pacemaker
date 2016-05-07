@@ -27,7 +27,8 @@
 				location: vm.newActivity.location,
 				distance: vm.newActivity.distance,
 				starttime: vm.newActivity.starttime,
-				duration: vm.newActivity.duration
+				duration: vm.newActivity.duration,
+				kgCo2: vm.newActivity.kgCo2
 			};
 			activityData.addActivity(activity)
 				.success(function(added_activity) {

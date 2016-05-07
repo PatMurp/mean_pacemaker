@@ -10,7 +10,8 @@ var activitySchema = mongoose.Schema({
   location: String,
   distance: Number,
   starttime: Date,
-  duration: Number
+  duration: Number,
+  kgCo2: Number
 });
 
 module.exports = mongoose.model('Activity', activitySchema);
