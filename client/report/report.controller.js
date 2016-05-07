@@ -5,10 +5,11 @@
 		.module('paceMaker')
 		.controller('reportCtrl', reportCtrl);
 
-	reportCtrl.$inject = ['activityData', 'authentication', '$http'];
-	function reportCtrl (activityData, authentication, $http) {
+	reportCtrl.$inject = ['activityData', 'authentication', '$http', 'co2Calculator'];
+	function reportCtrl (activityData, authentication, $http, co2Calculator) {
 		var vm = this;
 
+		vm.options = co2Calculator.bandOptions;
 
 		// get logged in user id
 		vm.userId = authentication.currentUser()._id;
@@ -17,6 +18,7 @@
 			.success(function(activities) {
 				vm.activities = activities;
 		});
+
 
 		vm.addActivity = function () {
 			var activity = {

@@ -9,7 +9,7 @@
 	function co2CalcCtrl(co2Calculator) {
 		var vm = this;
 
-		vm.co2_band_options = ["A1", "A2", "A3", "A4", "B1", "B2", "C", "D", "E", "F", "G"];
+		vm.co2_band_options = co2Calculator.bandOptions;
 		vm.current_distance = 5;
 		vm.current_co2_band = "C";
 		vm.current_co2_value = 6;

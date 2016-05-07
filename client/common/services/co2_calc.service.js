@@ -55,9 +55,12 @@
 			return ((CO2savings * co2_value)/1000).toFixed(2);
 		};
 
+		var bandOptions = ["A1", "A2", "A3", "A4", "B1", "B2", "C", "D", "E", "F", "G"];
+
 		return {
 			CO2savings: CO2savings,
-			CO2Value: CO2Value
+			CO2Value: CO2Value,
+			bandOptions: bandOptions
 		};
 	}
 	

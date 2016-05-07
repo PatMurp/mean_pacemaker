@@ -34,7 +34,7 @@
 				controller: 'dashbCtrl',
 				controllerAs: 'vm',
 				resolve: {
-					loggedIn:onlyLoggedIn
+					loggedIn: onlyLoggedIn
 				}
 			})
 			.when('/report', {
@@ -42,7 +42,7 @@
 				controller: 'reportCtrl',
 				controllerAs: 'vm',
 				resolve: {
-					loggedIn:onlyLoggedIn
+					loggedIn: onlyLoggedIn
 				}
 			})
 			.when('/carbon', {
@@ -50,7 +50,7 @@
 				controller: 'co2CalcCtrl',
 				controllerAs: 'vm',
 				resolve: {
-					loggedIn:onlyLoggedIn
+					loggedIn: onlyLoggedIn
 				}
 			})
 			.otherwise({redirectTo: '/'});

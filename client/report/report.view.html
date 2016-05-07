@@ -35,10 +35,10 @@
 				<h3>Add activity</h3>
 
 				<div class="form-group">
-					<input class="form-control" type="string" ng-model="vm.newActivity.type" placeholder="type" required>
+					<input class="form-control" type="text" ng-model="vm.newActivity.type" placeholder="type" required>
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="string" ng-model="vm.newActivity.location" placeholder="location" required>
+					<input class="form-control" type="text" ng-model="vm.newActivity.location" placeholder="location" required>
 				</div>
 				<div class="form-group">
 					<input class="form-control" type="number" ng-model="vm.newActivity.distance" min="0.1" max="100" step="0.1" placeholder="distance km:" required>
@@ -52,10 +52,19 @@
 				 <div class="form-group">
 		      <div class="checkbox">
 		        <label>
-		          <input type="checkbox"> Carbon savings
+		          <input type="checkbox" ng-true-value="'A'" ng-false-value="'B'" ng-model="check"> Include Carbon savings
 		        </label>
 		      </div>
 			  </div>
+			  <div class="form-group" ng-show="check == 'A'">
+			  	<select class="form-control" ng-model="vm.current_co2_band" ng-options="o as o for o in vm.options">
+			  		<option value="" disabled selected hidden>Please Choose CO2 band...</option>
+			  	</select>
+			  </div>
+			  <div class="form-group" ng-show="check == 'A'">
+			  	<input type="number" ng-value="{{vm.newActivity.distance}}">
+			  </div>
+		
 				<button type="submit" class="btn btn-success btn-block">Add Activity</button>
 			</form>
 		</div><!-- col-md-3 end -->	
