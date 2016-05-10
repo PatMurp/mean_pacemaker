@@ -67,6 +67,7 @@
 
 		});
 
+		// get waterford city weather data 
 		openWeather.getWeather().then(function(data) {
 			vm.city = data;
 		});

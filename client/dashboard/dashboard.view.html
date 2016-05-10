@@ -3,7 +3,7 @@
 <div class="container">
 	<h2 ng-show="!vm.activities.length" class="text-center alert alert-danger" role="alert">No Activities Available</h2>
 	<div class="row" ng-hide="!vm.activities.length">
-		<h2 class="text-center">Activity Summary</h2>
+		<h2 class="text-center">Activity Summary {{vm.kgCo2}}</h2>
 		<div class="col-sm-2">
 			<div class="panel panel-success">
 				<div class="panel-heading">
@@ -29,7 +29,7 @@
 				</div><!-- panel heading end -->
 				<div class="panel-body">
 					<table class="bar-chart">
-						<tr ng-repeat="activity in vm.activities | orderBy:'$index':false">
+						<tr ng-repeat="activity in vm.activities | limitTo: -10 |orderBy:'$index':false">
 							<td class="legend" ng-style="{left:$index * 10 +'%'}">{{ activity.starttime | date:'dd MMM' }} <br>{{ activity.type }}</td>
 							<td class="time" ng-style="{ left:$index * 10 +'%', height: (activity.duration / vm.maxTime) * 300 + 'px'}" ng-class="{highlight: activity.duration === vm.maxTime}"><span>{{ activity.duration }} Minutes</span></td>
 							<td class="distance" ng-style="{ left:$index * 10 +'%', height: (activity.distance / vm.maxDistance) * 300 + 'px'}" ng-class="{highlight: activity.distance === vm.maxDistance}"><span>{{ activity.distance }} Kilometers</span></td>
