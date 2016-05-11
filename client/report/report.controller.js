@@ -41,7 +41,7 @@
 				.success(function(added_activity) {
 					vm.activities.push(added_activity);
 					vm.newActivity = {};
-					vm.savings = 0;
+					vm.savings = null;
 				});
 
 		};

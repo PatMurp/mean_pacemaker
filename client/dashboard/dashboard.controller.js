@@ -5,8 +5,8 @@
 	.module('paceMaker')
 	.controller('dashbCtrl', dashbCtrl);
 
-	dashbCtrl.$inject = ['activityData', 'authentication', 'openWeather'];
-	function dashbCtrl (activityData, authentication, openWeather) {
+	dashbCtrl.$inject = ['activityData', 'authentication', 'openWeather', 'co2Calculator'];
+	function dashbCtrl (activityData, authentication, openWeather, co2Calculator) {
 		var vm = this;
 		// get logged in user id
 		vm.userId = authentication.currentUser()._id;
@@ -64,6 +64,18 @@
 					}
 					return prev;
 				}, {});
+
+				vm.totalKg = function() {
+					var total = 0;
+					for (var k=0; k < activities.length; k++) {
+						if (activities[k].kgCo2 > 0) {
+							total += activities[k].kgCo2;
+						}
+					}
+					return total.toFixed(3);
+				};
+
+				vm.totalValue = co2Calculator.CO2Value(vm.totalKg(), 6);
 
 		});
 

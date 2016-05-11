@@ -136,24 +136,11 @@ svg line {
   stroke-width: 3px;
 }
 
-.pie {
-  margin: 0;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  float: left;
-}
-
-table.pie-table {
-  text-align: center;
-  margin: 0 3% 0 10px;
-  width: 120px;
-  height: 60px;
-  float: right;
-}
-table.pie-table td {
-  padding: 4px;
-  background: #eee;
+h3 span { 
+  color: #174230;
+  background-color: #dff0d8;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 
