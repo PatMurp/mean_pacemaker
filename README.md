@@ -8,5 +8,6 @@ add .env file to root of project
 #### install modules and start mongodb
 	$ npm install
 	$ mongod
+	$ node app.js
 
 point browser to: [localhost:4000](http://localhost:4000/)

@@ -1,8 +1,13 @@
+/*home page*/
 .jumbotron {
 	background-color: #5cb85c;
 }
 
+ul.features {
+  list-style-type: square;
+} 
 
+/*dashboard chart styles*/
 ul {
   list-style-type: none;
   margin: 0;
