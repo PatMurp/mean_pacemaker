@@ -22,9 +22,6 @@
 				vm.activities = activities;
 		});
 
-		
-
-
 		vm.addActivity = function () {
 			var activity = {
 				user: vm.userId, // save user id with activity
@@ -64,12 +61,12 @@
 			});
 		};
 
-		vm.deleteActivity = function(id) {
-
-			activityData.destroy(id)
-				.success(function(activities) {
-					vm.activities.splice(activities, 1);
+		vm.deleteActivity = function(index) {
+			activityData.destroy(index._id)
+				.success(function() {
+					vm.activities.splice(vm.activities.indexOf(index), 1);
 				});
 		};
+
 	}
 })();
