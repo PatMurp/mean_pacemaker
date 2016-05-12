@@ -20,6 +20,8 @@
         ng-hide="navvm.isLoggedIn"><a href="/#login/?page={{ navvm.currentPath }}">Login</a></li>
         <li ng-class="{ active: navvm.isActive('/dashboard')}"
         ng-show="navvm.isLoggedIn"><a href="/#dashboard">Dashboard</a></li>
+        <li ng-class="{ active: navvm.isActive('/add')}" 
+        ng-show="navvm.isLoggedIn"><a href="/#add">Add Activity</a></li>
         <li ng-class="{ active: navvm.isActive('/report')}"
         ng-show="navvm.isLoggedIn"><a href="/#report">Report</a></li>
         <li ng-class="{ active: navvm.isActive('/carbon')}"

@@ -53,6 +53,14 @@
 					loggedIn: onlyLoggedIn
 				}
 			})
+			.when('/add', {
+				templateUrl: 'addActivity/addActivity.view.html',
+				controller: 'addActivityCtrl',
+				controllerAs: 'vm',
+				resolve: {
+					loggedIn: onlyLoggedIn
+				}
+			})
 			.otherwise({redirectTo: '/'});
 
 

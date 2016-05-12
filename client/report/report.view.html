@@ -17,7 +17,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="activity in vm.activities | orderBy:'$index':true"">
+				<tr ng-repeat="activity in vm.activities | orderBy:'$index':true">
 					<td><a href="#" editable-text="activity.type" onaftersave="vm.updateActivity(activity)">{{ activity.type || 'empty' }}</a></td>
 					<td> <a href="#" editable-text="activity.location" onaftersave="vm.updateActivity(activity)">{{ activity.location || 'empty'  }}</a></td>
 					<td><a href="#" editable-number="activity.distance" onaftersave="vm.updateActivity(activity)">{{ activity.distance || 'empty'  }} km</a></td>
@@ -31,44 +31,5 @@
 			</tbody>
 		</table>
 	</div><!-- row end -->
-	<div class="row">
-		<div class="col-md-3 col-sm-12">
-			<form ng-submit="vm.addActivity()">
-				<h3>Add activity</h3>
-
-				<div class="form-group">
-					<input class="form-control" type="text" ng-model="vm.newActivity.type" placeholder="type" required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="text" ng-model="vm.newActivity.location" placeholder="location" required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="number" ng-model="vm.newActivity.distance" min="0.1" max="100" step="0.1" ng-change ="vm.calc()" placeholder="distance km:" required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="datetime-local" ng-model="vm.newActivity.starttime"required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="number" ng-model="vm.newActivity.duration" placeholder="duration minutes:" required>
-				</div>
-				 <div class="form-group">
-		      <div class="checkbox">
-		        <label>
-		          <input type="checkbox" ng-true-value="'A'" ng-false-value="'B'" ng-model="check"> Include Carbon savings
-		        </label>
-		      </div>
-			  </div>
-			  <div class="form-group" ng-show="check == 'A'">
-			  	<select class="form-control" ng-model="vm.current_co2_band" ng-options="o as o for o in vm.options" ng-change ="vm.calc()">
-			  		<option value="" disabled selected hidden>Please Choose CO2 band...</option>
-			  	</select>
-			  </div>
-				<p ng-show="check == 'A'">CO2 savings {{vm.savings}}kg</p>
-				<button type="submit" class="btn btn-success btn-block">Add Activity</button>
-			</form>
-		</div><!-- col-md-3 end -->	
-	</div>
-
-	
 	<footer-pacemaker></footer-pacemaker>
 </div><!-- container end	 -->
